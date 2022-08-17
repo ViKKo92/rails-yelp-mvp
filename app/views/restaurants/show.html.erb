@@ -1,20 +1,33 @@
 <div class="container">
-  <div id="title-wrapper">
-    <h1><%= @restaurant.name %></h1>
-    <h2>The best <%= @restaurant.category %> restaurant around town!</h2>
+  <div id="left-wrapper">
+    <div id="title-wrapper">
+      <h1><%= @restaurant.name %></h1>
+      <h2>The best <%= @restaurant.category %> restaurant in town!</h2>
+    </div>
+    <div id="contact-details-wrapper">
+      <p>Address: <%= @restaurant.address %></p>
+      <p>Phone number: <%= @restaurant.phone_number %></p>
+    </div>
+    <div id="image-wrapper">
+    </div>
   </div>
-  <div id="contact-details-wrapper">
-    <p>Address: <%= @restaurant.address %></p>
-    <p>Phone number: <%= @restaurant.phone_number %></p>
-  </div>
-  <div id="reviews-wrapper">
-    <p><strong>Reviews</strong></p>
-    <% @restaurant.reviews.each do |review| %>
-      <div class="review-card">
-      <p>Rating: <%= review.rating %> - Stars</p>
-      <p>Review: "<%= review.content %>"</p>
-      </div>
-    <% end %>
-    <p><%= link_to("Write a new review", new_restaurant_review_path(@restaurant)) %></p>
+  <div id="review-block">
+    <div id="reviews-wrapper">
+      <h3>Reviews</h3>
+      <% @restaurant.reviews.each do |review| %>
+        <div class="review-card">
+        <p>Rating: <%= review.rating %> - Stars</p>
+        <p>Review: "<%= review.content %>"</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="add-review">
+    <h3>Add a new review</h3>
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :content %>
+        <%= f.button :submit, class: "btn btn-primary w-100" %>
+      <% end %>
+    </div>
   </div>
 </div>

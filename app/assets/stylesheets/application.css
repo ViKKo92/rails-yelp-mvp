@@ -25,3 +25,35 @@
   border-bottom: 5px solid gray;
   margin-bottom: 15px;
  }
+
+ .container {
+  display: flex;
+  justify-content: space-between;
+ }
+
+  #review-block {
+    width: 600px;
+  }
+
+  #left-wrapper {
+    width: 600px;
+  }
+
+  .review-card {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 5px lightgray;
+    padding: 10px;
+  }
+
+  .review-card p {
+    margin-bottom: 5px;
+  }
+
+  #image-wrapper {
+    width: 600px;
+    height: 338px;
+    background-image: url("https://source.unsplash.com/random/?restaurant");
+    background-repeat: none;
+    background-size: cover;
+  }
